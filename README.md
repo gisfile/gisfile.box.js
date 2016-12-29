@@ -42,6 +42,36 @@ Examples
 <p>The <code>gisfile.json.js</code> file does not includes the Leaflet and jsZip library. 
 You will have to include the Leaflet and jsZip yourself.</p>
 
+<div class="highlight highlight-html">
+<pre>
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;script src="http://gisfile.com/js/jquery/jquery-1.8.0.min.js"&gt;&lt;/script&gt;
+        &lt;link rel="stylesheet" href="http://gisfile.com/css/leaflet.css" /&gt;
+        &lt;script src="http://gisfile.com/js/leaflet.js"&gt;&lt;/script&gt;
+        &lt;script src="http://gisfile.com/js/gisfile.box.js"&gt;&lt;/script&gt;
+        &lt;script src="http://gisfile.com/js/jszip.min.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div id="map" style="width: 100%; height: 500px"&gt;&lt;/div&gt;
+
+        &lt;script type="text/javascript"&gt;
+            var map = new L.map("map", {
+                    center: [50.4487, 30.5873], 
+                    zoom: 10
+                });
+
+            $(function() {
+                new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+                var gisfile = new L.GisFileBox({map : 'SpatialTown'}).addTo(map);
+                gisfile._update();
+            })
+        &lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
 <h2>
 <a id="user-content-references" class="anchor" href="#references" aria-hidden="true">
 <span class="octicon octicon-link"></span></a>
